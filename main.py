@@ -1,12 +1,7 @@
-main()
+from utils import show_banner
 
+def main():
+    show_banner()
 
-
-show_banner()
-
-
-
-
-
-
-get_target()
+if __name__ == "__main__":
+    main()
