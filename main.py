@@ -2,6 +2,7 @@ from utils import show_banner
 from utils import get_target
 from utils import validate_target
 from utils import resolve_target
+from scanner import scan_ports
 
 
 def main():
