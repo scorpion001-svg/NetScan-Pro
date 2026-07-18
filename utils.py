@@ -61,7 +61,7 @@ def validate_target(target):
     
         return None
     
-    
+
 def resolve_target(target, target_type):
     #resolve_target(target, target_type)
     if target_type == "ip" :

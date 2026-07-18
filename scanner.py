@@ -43,9 +43,6 @@ def get_port_range():
                 print("[ERROR] Start port cannot be greater than end port.\n")
                 break
 
-            print("Start point =", start_port)
-            print("End point =", end_port)
-
             return start_port, end_port
                 
         
