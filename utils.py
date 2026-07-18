@@ -1,3 +1,4 @@
+import ipaddress
 def show_banner():
     """
     Display the NetScan Pro application banner.
@@ -26,3 +27,35 @@ def show_banner():
 
 
 #multi-line string
+
+
+
+def get_target():
+    while True:
+        target = input("Target (IP / Domain): ").strip()
+        
+        if target : #!= ""
+            return target
+        else:
+            print("[ERROR] Target cannot be empty.")
+            print()
+
+
+            
+def validate_target(target):
+    try :
+        ipaddress.ip_address(target)
+        return "ip"
+        
+    except ValueError:
+        if(
+            "." in target  
+            and not target.startswith(".")
+            and not target.endswith(".") 
+            and " " not in target
+            and ".." not in target
+           
+        ):
+            return "domain"
+    
+        return None
