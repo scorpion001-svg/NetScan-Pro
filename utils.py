@@ -1,4 +1,5 @@
 import ipaddress
+import socket
 def show_banner():
     """
     Display the NetScan Pro application banner.
@@ -58,4 +59,17 @@ def validate_target(target):
         ):
             return "domain"
     
+        return None
+    
+    
+def resolve_target(target, target_type):
+    #resolve_target(target, target_type)
+    if target_type == "ip" :
+        return target
+    try:
+        resolved_ip = socket.gethostbyname(target)
+        return resolved_ip
+            
+            
+    except socket.gaierror:  #Get Address Info Error
         return None
