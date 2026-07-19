@@ -1,4 +1,6 @@
 from colors import SUCCESS_COLOR,ERROR_COLOR, RESET_COLOR
+from services import get_service_name
+
 def display_results(target, resolved_ip, open_ports, scan_time):
     header = """
     ==================================================
@@ -19,7 +21,8 @@ def display_results(target, resolved_ip, open_ports, scan_time):
      
     else:   
         for port in open_ports:
-            print(f"{SUCCESS_COLOR}[+] Port {port} OPEN{RESET_COLOR}")
+            service = get_service_name(port)
+            print(f"{SUCCESS_COLOR}[+] Port {port:<5} OPEN   {service}{RESET_COLOR}")
     
     
     print("=" * 50)
