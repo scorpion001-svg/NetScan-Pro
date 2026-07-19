@@ -1,5 +1,5 @@
 from colors import SUCCESS_COLOR,ERROR_COLOR, RESET_COLOR
-def display_results(target, resolved_ip, open_ports):
+def display_results(target, resolved_ip, open_ports, scan_time):
     header = """
     ==================================================
                 NetScan Pro Results
@@ -23,5 +23,5 @@ def display_results(target, resolved_ip, open_ports):
     
     
     print("=" * 50)
-    print(f"{SUCCESS_COLOR}Scan Completed.{RESET_COLOR}")
+    print(f"{SUCCESS_COLOR}Scan completed in {scan_time:.2f} seconds.{RESET_COLOR}")
  
