@@ -6,8 +6,9 @@ from scanner import scan_ports
 from scanner import get_port_range
 from display import display_results
 from colorama import init
-from colors import ERROR_COLOR, RESET_COLOR, INFO_COLOR
+from colors import ERROR_COLOR, RESET_COLOR, SUCCESS_COLOR
 import time
+from export import export_results
 
 
 
@@ -38,6 +39,9 @@ def main():
     scan_time = end_time - start_time
     
     display_results(target, resolved_ip, open_ports, scan_time)
+    
+    saved_file = export_results(target, resolved_ip, open_ports)
+    print(f"{SUCCESS_COLOR}Results saved to {saved_file}{RESET_COLOR}")
 
 
 if __name__ == "__main__":
