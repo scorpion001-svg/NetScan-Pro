@@ -1,5 +1,7 @@
 import ipaddress
 import socket
+from colors import SUCCESS_COLOR,ERROR_COLOR, RESET_COLOR
+
 def show_banner():
     """
     Display the NetScan Pro application banner.
@@ -38,7 +40,7 @@ def get_target():
         if target : #!= ""
             return target
         else:
-            print("[ERROR] Target cannot be empty.")
+            print(f"{ERROR_COLOR}[ERROR] Target cannot be empty.{RESET_COLOR}")
             print()
 
 

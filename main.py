@@ -5,10 +5,14 @@ from utils import resolve_target
 from scanner import scan_ports
 from scanner import get_port_range
 from display import display_results
+from colorama import init
+from colors import ERROR_COLOR, RESET_COLOR, INFO_COLOR
 
 
 
 def main():
+    init()
+    
     show_banner()
 
     target = get_target()
@@ -16,12 +20,12 @@ def main():
     target_type = validate_target(target)
 
     if target_type is None:
-        print("[ERROR] Invalid target.")
+        print(f"{ERROR_COLOR}[ERROR] Invalid target.{RESET_COLOR}")
         return
     
     resolved_ip = resolve_target(target, target_type)
     if resolved_ip is None:
-        print("[ERROR] Unable to resolve target.")
+        print(f"{ERROR_COLOR}[ERROR] Unable to resolve target.{RESET_COLOR}")
         return 
     
     start_port, end_port = get_port_range()

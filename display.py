@@ -1,3 +1,4 @@
+from colors import SUCCESS_COLOR,ERROR_COLOR, RESET_COLOR
 def display_results(target, resolved_ip, open_ports):
     header = """
     ==================================================
@@ -14,12 +15,13 @@ def display_results(target, resolved_ip, open_ports):
     print("-" * 30)
     
     if len(open_ports) == 0: #if not open_ports:
-        print("No open ports found.")
+        print(f"{ERROR_COLOR}No open ports found.{RESET_COLOR}")
      
     else:   
         for port in open_ports:
-            print(f"[+] Port {port} OPEN")
+            print(f"{SUCCESS_COLOR}[+] Port {port} OPEN{RESET_COLOR}")
     
     
     print("=" * 50)
-    print("Scan Completed.")
+    print(f"{SUCCESS_COLOR}Scan Completed.{RESET_COLOR}")
+ 
