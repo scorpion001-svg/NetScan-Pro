@@ -1,19 +1,38 @@
 import socket
 from colors import SUCCESS_COLOR,ERROR_COLOR, RESET_COLOR
+from concurrent.futures import ThreadPoolExecutor
+
 def scan_ports(resolved_ip, start_port, end_port):
     open_ports = []
+
+    with ThreadPoolExecutor(max_workers=100) as executor:
+
+        futures = []
+
+        for port in range(start_port, end_port + 1):
+            future = executor.submit(scan_single_port, resolved_ip, port)
+            futures.append(future)
+
+        for future in futures:
+            result = future.result()
+
+            if result is not None:
+                open_ports.append(result)
+
+    return open_ports
+
     
-    for port in range(start_port, end_port + 1):
+def scan_single_port(resolved_ip, port):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.settimeout(1)
+        
         result = sock.connect_ex((resolved_ip, port))
+        sock.close()
         
         if result == 0:
-            open_ports.append(port)
+            return port
         
-        sock.close()
-            
-    return open_ports
+        return None
 
 
 
