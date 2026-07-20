@@ -1,33 +1,59 @@
-# NetScan-Pro
+# NetScan Pro
 
-A lightweight TCP Port Scanner built with Python.
-
-NetScan Pro is a modular networking tool that validates targets, resolves domains, scans TCP ports, and displays results in a clean terminal interface.
+A fast, multi-threaded TCP port scanner written in Python with service detection, banner grabbing, progress tracking, and export support.
 
 ---
 
 ## Features
 
-- ASCII Banner
-- IP / Domain Validation
-- DNS Resolution
-- Configurable Port Range
-- TCP Connect Port Scanning
-- Clean Result Display
-- Modular Project Structure
+- Multi-threaded TCP Port Scanning
+- Fast / Default / Full Scan Modes
+- Custom Port Range
+- Domain & IP Address Support
+- Automatic DNS Resolution
+- Service Detection
+- SSH Banner Grabbing
+- HTTP Server Detection
+- HTTPS Server Detection
+- Real-time Progress Indicator
+- Colored Terminal Output
+- Scan Summary
+- Export Results to Text File
+- Error Handling & Validation
 
 ---
 
-## Project Structure
+## Preview
 
-```
-NetScan-Pro/
-│
-├── main.py
-├── utils.py
-├── scanner.py
-├── display.py
-└── README.md
+### Scan Result
+
+```text
+==================================================
+              NetScan Pro Results
+==================================================
+
+Target      : scanme.nmap.org
+Resolved IP : 45.33.32.156
+
+Open Ports (2)
+--------------------------------------------------
+[+] Port 22
+    State   : OPEN
+    Service : SSH
+    Server  : SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.13
+
+[+] Port 80
+    State   : OPEN
+    Service : HTTP
+    Server  : Apache/2.4.7 (Ubuntu)
+
+==================================================
+Scan Summary
+==================================================
+
+Ports Scanned : 1 - 100
+Open Ports    : 2
+Scan Time     : 0.35 sec
 ```
 
 ---
@@ -38,10 +64,21 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/NetScan-Pro.git
+```
+
+Move to the project directory:
+
+```bash
 cd NetScan-Pro
 ```
 
-Run the project:
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the scanner:
 
 ```bash
 python main.py
@@ -49,34 +86,33 @@ python main.py
 
 ---
 
-## Usage
+## Scan Modes
 
-Example:
+| Mode | Description |
+|------|-------------|
+| Fast | Scan ports 1–100 |
+| Default | Scan ports 1–1000 |
+| Full | Scan ports 1–65535 |
+| Custom | User-defined port range |
 
-```
-Target (IP / Domain): scanme.nmap.org
+---
 
-Start port: 20
-End port: 100
-```
+## Project Structure
 
-Example Output:
-
-```
-==================================================
-              NetScan Pro Results
-==================================================
-
-Target      : scanme.nmap.org
-Resolved IP : xxx.xxx.xxx.xxx
-
-Open Ports
-------------------------------
-[+] Port 22 OPEN
-[+] Port 80 OPEN
-
-==================================================
-Scan Completed.
+```text
+NetScan-Pro/
+│
+├── analyzer.py
+├── colors.py
+├── display.py
+├── export.py
+├── main.py
+├── progress.py
+├── scanner.py
+├── services.py
+├── utils.py
+├── requirements.txt
+└── README.md
 ```
 
 ---
@@ -85,48 +121,43 @@ Scan Completed.
 
 - Python 3
 - socket
-- ipaddress
-- Git
-- GitHub
+- ssl
+- concurrent.futures
+- colorama
 
 ---
 
-## Roadmap
+## How It Works
 
-### Version 1.0
-- [x] Banner
-- [x] Target Validation
-- [x] DNS Resolution
-- [x] TCP Port Scanner
-- [x] Result Display
+1. Validates the target.
+2. Resolves the domain name to an IP address.
+3. Scans the selected ports using multiple threads.
+4. Detects common services.
+5. Attempts banner grabbing for supported services.
+6. Displays formatted results.
+7. Exports the scan results to a text file.
 
-### Version 1.1
-- [ ] Service Detection
-- [ ] Colored Output
-- [ ] Scan Time
-- [ ] Better Error Handling
+---
 
-### Version 2.0
-- [ ] Multi-threading
-- [ ] Export Scan Results
-- [ ] CLI Arguments
-- [ ] Progress Indicator
+## Future Improvements
 
-### Version 3.0
-- [ ] Banner Grabbing
-- [ ] UDP Scan
-- [ ] Advanced Scan Modes
+- UDP Scanning
+- CLI Arguments
+- JSON Export
+- CSV Export
+- Banner Version Detection
+- Operating System Fingerprinting
 
 ---
 
 ## Author
 
-Hussien Mohamad
+**Hussein "Scorpion01"**
 
 Computer Science Student
 
----
+Sadat Academy for Management Sciences
 
-## License
+GitHub: https://github.com/scorpion001-svg
 
-This project is licensed under the MIT License.
+LinkedIn: https://www.linkedin.com/in/hussien-mohamad-4a37583b5/
