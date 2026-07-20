@@ -23,6 +23,9 @@ A fast, multi-threaded TCP port scanner written in Python with service detection
 ---
 
 ## Preview
+## Preview
+
+```text
     _   __     __  _____                     ____
    / | / /__  / /_/ ___/_________ _____     / __ \_________
   /  |/ / _ \/ __/\__ \/ ___/ __ `/ __ \   / /_/ / ___/ __ \
@@ -31,19 +34,21 @@ A fast, multi-threaded TCP port scanner written in Python with service detection
 
 ────────────────────────────────────────────────────────────
                 Scan Smart. Discover More.
-                      Version 1.0.0
 ────────────────────────────────────────────────────────────
 
 Target (IP / Domain): scanme.nmap.org
 
 Choose Scan Mode
-1. Fast Scan (Ports 1-100)
-2. Default Scan (Ports 1-1000)
-3. Full Scan (Ports 1-65535)
+1. Fast Scan (Ports 1–100)
+2. Default Scan (Ports 1–1000)
+3. Full Scan (Ports 1–65535)
 4. Custom Range
 
 Choice: 3
-Scanning Ports: [██████████████████████████████] 100.0% (65535/65535)
+
+Scanning Ports:
+[██████████████████████████████] 100.0% (65535/65535)
+```
 
 ### Scan Result
 
