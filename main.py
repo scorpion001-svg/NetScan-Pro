@@ -43,7 +43,9 @@ def main():
         banner = grab_banner(target, resolved_ip, result["port"])
         result["server"] = banner
 
-    display_results(target, resolved_ip, scan_results, scan_time)
+    display_results(target, resolved_ip, scan_results, scan_time, start_port,end_port)
+     
+
     
     saved_file = export_results(target, resolved_ip, scan_results)
     print(f"{SUCCESS_COLOR}Results saved to {saved_file}{RESET_COLOR}")

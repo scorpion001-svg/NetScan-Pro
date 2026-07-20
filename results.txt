@@ -2,9 +2,13 @@
 NetScan Pro Results
 ==================================================
 
-Target      : scanme.nmap.org
-Resolved IP : 45.33.32.156
+Target      : 8.8.8.8
+Resolved IP : 8.8.8.8
 
 Open Ports
 ------------------------------
-[+] Port 22    OPEN   SSH
+[+] Port 443
+    State   : OPEN
+    Service : HTTPS
+    Server  : HTTP server (unknown)
+

@@ -1,4 +1,3 @@
-from services import get_service_name
 from colors import SUCCESS_COLOR,ERROR_COLOR, RESET_COLOR
 
 
@@ -20,9 +19,16 @@ def export_results(target, resolved_ip, scan_results):
                 port = result["port"]
                 state = result["state"]
                 service = result["service"]
+                    
+                file.write(f"[+] Port {port}\n")
+                file.write(f"    State   : {state}\n")
+                file.write(f"    Service : {service}\n")
 
-                file.write(f"[+] Port {port:<5} {state:<6} {service}\n")
-                if result["banner"] is not None:
-                    file.write(f"    Banner : {result['banner']}")
+                if result["server"] is not None:
+                    file.write(f"    Server  : {result['server']}\n")
+
+                file.write("\n")
+                
+
                     
     return "results.txt"
