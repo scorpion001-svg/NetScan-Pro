@@ -2,13 +2,26 @@
 NetScan Pro Results
 ==================================================
 
-Target      : 8.8.8.8
-Resolved IP : 8.8.8.8
+Target      : scanme.nmap.org
+Resolved IP : 45.33.32.156
 
 Open Ports
 ------------------------------
-[+] Port 443
+[+] Port 22
     State   : OPEN
-    Service : HTTPS
-    Server  : HTTP server (unknown)
+    Service : SSH
+    Server  : SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.13
+
+[+] Port 80
+    State   : OPEN
+    Service : HTTP
+    Server  : Apache/2.4.7 (Ubuntu)
+
+[+] Port 9929
+    State   : OPEN
+    Service : Unknown Service
+
+[+] Port 31337
+    State   : OPEN
+    Service : Unknown Service
 

@@ -24,6 +24,8 @@ A fast, multi-threaded TCP port scanner written in Python with service detection
 ---
 
 ## Preview
+![Scan Result](images\scan result.png)
+![Scan Result](images\scan progress.png)
 
 ### Scan Result
 
