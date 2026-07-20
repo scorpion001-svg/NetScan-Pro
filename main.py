@@ -40,7 +40,7 @@ def main():
     scan_time = end_time - start_time
     
     for result in scan_results:
-        banner = grab_banner(resolved_ip, result["port"])
+        banner = grab_banner(target, resolved_ip, result["port"])
         result["banner"] = banner
 
     display_results(target, resolved_ip, scan_results, scan_time)

@@ -2,11 +2,10 @@
 NetScan Pro Results
 ==================================================
 
-Target      : scanme.nmap.org
-Resolved IP : 45.33.32.156
+Target      : cloudflare.com
+Resolved IP : 104.16.133.229
 
 Open Ports
 ------------------------------
-[+] Port 22    OPEN   SSH
-    Banner : SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.13[+] Port 80    OPEN   HTTP
-    Banner : Apache/2.4.7 (Ubuntu)
+[+] Port 443   OPEN   HTTPS
+    Banner : cloudflare
