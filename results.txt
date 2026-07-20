@@ -8,4 +8,5 @@ Resolved IP : 45.33.32.156
 Open Ports
 ------------------------------
 [+] Port 22    OPEN   SSH
-[+] Port 80    OPEN   HTTP
+    Banner : SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.13[+] Port 80    OPEN   HTTP
+    Banner : Apache/2.4.7 (Ubuntu)

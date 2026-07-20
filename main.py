@@ -9,6 +9,7 @@ from colorama import init
 from colors import ERROR_COLOR, RESET_COLOR, SUCCESS_COLOR
 import time
 from export import export_results
+from analyzer import grab_banner
 
 
 
@@ -34,13 +35,17 @@ def main():
     start_port, end_port = get_port_range()
 
     start_time = time.time()
-    open_ports = scan_ports(resolved_ip, start_port, end_port)
+    scan_results = scan_ports(resolved_ip, start_port, end_port)
     end_time = time.time()
     scan_time = end_time - start_time
     
-    display_results(target, resolved_ip, open_ports, scan_time)
+    for result in scan_results:
+        banner = grab_banner(resolved_ip, result["port"])
+        result["banner"] = banner
+
+    display_results(target, resolved_ip, scan_results, scan_time)
     
-    saved_file = export_results(target, resolved_ip, open_ports)
+    saved_file = export_results(target, resolved_ip, scan_results)
     print(f"{SUCCESS_COLOR}Results saved to {saved_file}{RESET_COLOR}")
 
 

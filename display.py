@@ -1,7 +1,7 @@
 from colors import SUCCESS_COLOR,ERROR_COLOR, RESET_COLOR
 from services import get_service_name
 
-def display_results(target, resolved_ip, open_ports, scan_time):
+def display_results(target, resolved_ip, scan_results, scan_time):
     header = """
     ==================================================
                 NetScan Pro Results
@@ -16,13 +16,22 @@ def display_results(target, resolved_ip, open_ports, scan_time):
     print("\nOpen Ports")
     print("-" * 30)
     
-    if len(open_ports) == 0: #if not open_ports:
+    if len(scan_results) == 0: #if not open_ports:
         print(f"{ERROR_COLOR}No open ports found.{RESET_COLOR}")
      
     else:   
-        for port in open_ports:
-            service = get_service_name(port)
-            print(f"{SUCCESS_COLOR}[+] Port {port:<5} OPEN   {service}{RESET_COLOR}")
+        for result in scan_results:
+            port = result["port"]
+            state = result["state"]
+            service = result["service"]
+
+            print(f"{SUCCESS_COLOR}[+] Port {port:<5} {state:<6} {service}{RESET_COLOR}")
+            
+            if result["banner"] is not None:
+                print(f"    Banner : {result['banner']}")
+            
+            print()
+            
     
     
     print("=" * 50)

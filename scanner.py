@@ -1,9 +1,10 @@
 import socket
 from colors import SUCCESS_COLOR,ERROR_COLOR, RESET_COLOR
 from concurrent.futures import ThreadPoolExecutor
+from services import get_service_name
 
 def scan_ports(resolved_ip, start_port, end_port):
-    open_ports = []
+    scan_results = []
 
     with ThreadPoolExecutor(max_workers=100) as executor:
 
@@ -17,9 +18,14 @@ def scan_ports(resolved_ip, start_port, end_port):
             result = future.result()
 
             if result is not None:
-                open_ports.append(result)
+                scan_results.append({
+                "port": result,
+                "state": "OPEN",
+                "service": get_service_name(result),
+                "banner": None
+            })
 
-    return open_ports
+    return scan_results
 
     
 def scan_single_port(resolved_ip, port):
