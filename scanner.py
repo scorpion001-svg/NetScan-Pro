@@ -6,7 +6,7 @@ from services import get_service_name
 def scan_ports(resolved_ip, start_port, end_port):
     scan_results = []
 
-    with ThreadPoolExecutor(max_workers=100) as executor:
+    with ThreadPoolExecutor(max_workers=200) as executor:
 
         futures = []
 
@@ -30,7 +30,7 @@ def scan_ports(resolved_ip, start_port, end_port):
     
 def scan_single_port(resolved_ip, port):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.settimeout(1)
+        sock.settimeout(0.3)
         
         result = sock.connect_ex((resolved_ip, port))
         sock.close()

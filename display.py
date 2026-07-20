@@ -27,8 +27,8 @@ def display_results(target, resolved_ip, scan_results, scan_time):
 
             print(f"{SUCCESS_COLOR}[+] Port {port:<5} {state:<6} {service}{RESET_COLOR}")
             
-            if result["banner"] is not None:
-                print(f"    Banner : {result['banner']}")
+            if result["server"] is not None:
+                print(f"    server : {result['server']}")
             
             print()
             
