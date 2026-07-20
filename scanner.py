@@ -94,6 +94,36 @@ def get_port_range():
                 break
 
             return start_port, end_port
+        
+        
+        
+        
+        
+        
+def get_scan_mode():
+    while True:
+        print("\nChoose Scan Mode")
+        print("1. Fast Scan (Ports 1-100)")
+        print("2. Default Scan (Ports 1-1000)")
+        print("3. Full Scan (Ports 1-65535)")
+        print("4. Custom Range")
+
+        choice = input("\nChoice: ").strip()
+
+        if choice == "1":
+            return 1, 100
+
+        elif choice == "2":
+            return 1, 1000
+
+        elif choice == "3":
+            return 1, 65535
+
+        elif choice == "4":
+            return get_port_range()
+
+        else:
+            print(f"{ERROR_COLOR}[ERROR] Invalid choice.{RESET_COLOR}")
                 
         
     

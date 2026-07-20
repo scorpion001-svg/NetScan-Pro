@@ -15,4 +15,4 @@ COMMON_PORTS = {
 }
 
 def get_service_name(port):
-    return COMMON_PORTS.get(port, "Unknown")
+    return COMMON_PORTS.get(port, "Unknown Service")

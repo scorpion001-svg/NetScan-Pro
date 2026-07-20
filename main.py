@@ -3,7 +3,7 @@ from utils import get_target
 from utils import validate_target
 from utils import resolve_target
 from scanner import scan_ports
-from scanner import get_port_range
+from scanner import get_scan_mode
 from display import display_results
 from colorama import init
 from colors import ERROR_COLOR, RESET_COLOR, SUCCESS_COLOR
@@ -32,7 +32,7 @@ def main():
         return 
     
     
-    start_port, end_port = get_port_range()
+    start_port, end_port = get_scan_mode()
 
     start_time = time.time()
     scan_results = scan_ports(resolved_ip, start_port, end_port)
