@@ -3,7 +3,6 @@
 A fast, multi-threaded TCP port scanner written in Python with service detection, banner grabbing, progress tracking, and export support.
 
 ---
-
 ## Features
 
 - Multi-threaded TCP Port Scanning
@@ -24,6 +23,27 @@ A fast, multi-threaded TCP port scanner written in Python with service detection
 ---
 
 ## Preview
+    _   __     __  _____                     ____
+   / | / /__  / /_/ ___/_________ _____     / __ \_________
+  /  |/ / _ \/ __/\__ \/ ___/ __ `/ __ \   / /_/ / ___/ __ \
+ / /|  /  __/ /_ ___/ / /__/ /_/ / / / /  / ____/ /  / /_/ /
+/_/ |_/\___/\__//____/\___/\__,_/_/ /_/  /_/   /_/   \____/
+
+────────────────────────────────────────────────────────────
+                Scan Smart. Discover More.
+                      Version 1.0.0
+────────────────────────────────────────────────────────────
+
+Target (IP / Domain): scanme.nmap.org
+
+Choose Scan Mode
+1. Fast Scan (Ports 1-100)
+2. Default Scan (Ports 1-1000)
+3. Full Scan (Ports 1-65535)
+4. Custom Range
+
+Choice: 3
+Scanning Ports: [██████████████████████████████] 100.0% (65535/65535)
 
 ### Scan Result
 
@@ -111,7 +131,6 @@ NetScan-Pro/
 ├── scanner.py
 ├── services.py
 ├── utils.py
-├── requirements.txt
 └── README.md
 ```
 
@@ -145,7 +164,6 @@ NetScan-Pro/
 - CLI Arguments
 - JSON Export
 - CSV Export
-- Banner Version Detection
 - Operating System Fingerprinting
 
 ---
