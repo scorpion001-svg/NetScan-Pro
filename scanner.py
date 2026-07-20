@@ -14,8 +14,26 @@ def scan_ports(resolved_ip, start_port, end_port):
             future = executor.submit(scan_single_port, resolved_ip, port)
             futures.append(future)
 
+        total_ports = len(futures)
+        completed_ports = 0
+        
+        bar_length = 30
+        
         for future in futures:
             result = future.result()
+            
+            completed_ports += 1
+            
+            progress = completed_ports / total_ports
+            filled = int(bar_length * progress)
+
+            bar = "█" * filled + "-" * (bar_length - filled)
+
+            print(
+                f"\rScanning Ports: [{bar}] {progress * 100:5.1f}% ({completed_ports}/{total_ports})",
+                end="",
+                  flush=True
+            )
 
             if result is not None:
                 scan_results.append({
@@ -24,10 +42,14 @@ def scan_ports(resolved_ip, start_port, end_port):
                 "service": get_service_name(result),
                 "banner": None
             })
+            
+        print()
 
     return scan_results
 
     
+    
+
 def scan_single_port(resolved_ip, port):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.settimeout(0.3)
@@ -39,6 +61,8 @@ def scan_single_port(resolved_ip, port):
             return port
         
         return None
+
+
 
 
 

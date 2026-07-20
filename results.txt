@@ -8,6 +8,3 @@ Resolved IP : 45.33.32.156
 Open Ports
 ------------------------------
 [+] Port 22    OPEN   SSH
-[+] Port 80    OPEN   HTTP
-[+] Port 9929  OPEN   Unknown
-[+] Port 31337 OPEN   Unknown
